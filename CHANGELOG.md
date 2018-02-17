@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.30.3
+
+* Add ability to set different endpoints for server and web clients.
+
 ### v2.30.2
 
 Fix [#144](https://github.com/meteorhacks/kadira/issues/144).

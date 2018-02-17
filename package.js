@@ -1,8 +1,8 @@
 Package.describe({
   "summary": "Performance Monitoring for Meteor",
-  "version": "2.30.2",
-  "git": "https://github.com/meteorhacks/kadira.git",
-  "name": "meteorhacks:kadira"
+  "version": "2.30.3",
+  "git": "https://github.com/knotel/kadira.git",
+  "name": "knotel:meteor-apm-client"
 });
 
 var npmModules = {

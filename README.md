@@ -1,28 +1,20 @@
-[![Build Status](https://travis-ci.org/meteorhacks/kadira.svg?branch=master)](https://travis-ci.org/meteorhacks/kadira)
+# Meteor APM (formerly Kadira)
 
-## [Kadira - Performance Monitoring for Meteor](https://kadira.io) 
-
-[![Kadira - Performance Monitoring for Meteor](https://i.cloudup.com/LwrCCa_RRE.png)](https://kadira.io)
+[![APM - Performance Monitoring for Meteor Apps](https://s3.amazonaws.com/dev-apm-screenshots/meteor-apm-agent/README-2.png)](https://www.meteor.com/hosting)
 
 ### Getting started
 
-1. Create an account at <https://kadira.io>
+1. Login to your own Meteor APM instance.
 2. From the UI, create an app. You'll get an `AppId` and an `AppSecret`.
-3. Run `meteor add meteorhacks:kadira` in your project
-4. Configure your Meteor app with the `AppId` and `AppSecret` by adding the following code snippet to a `server/kadira.js` file:
+3. Run `meteor add knotel:meteor-apm-client` inside your Meteor project.
+4. Configure your Meteor app with the `AppId`, `AppSecret` and `endpoint` using environment variables or Meteor settings.
 
-```js
-Meteor.startup(function() {
-  Kadira.connect('<AppId>', '<AppSecret>');
-});
-```
-
-Now you can deploy your application and it will send information to Kadira. Wait up to one minute and you'll see data appearing in the Kadira Dashboard.
+Now you can deploy your application and it will send information to your APM. Wait up to one minute and you'll see data appearing in the Dashboard.
 
 
-### Auto Connect
+### How-To Connect
 
-Your app can connect to Kadira using environment variables or using [`Meteor.settings`](http://docs.meteor.com/#meteor_settings).
+Your app can connect to Meteor APM using environment variables or using [`Meteor.settings`](http://docs.meteor.com/#meteor_settings).
 
 #### Using Meteor.settings
 Use the followng `settings.json` file with your app:
@@ -32,7 +24,11 @@ Use the followng `settings.json` file with your app:
   ...
   "kadira": {
     "appId": "<appId>",
-    "appSecret": "<appSecret>"
+    "appSecret": "<appSecret>",
+    "options": {
+      "endpoint": "https://<MY-APM-DOMAIN>:<PORT>",
+      "webClientEndpoint": "https://<MY-APM-DOMAIN>:<PORT>"
+    }
   }
   ...
 }
@@ -51,9 +47,9 @@ export KADIRA_APP_SECRET=<appSecret>
 
 ### Error Tracking
 
-Kadira comes with built in error tracking solution for Meteor apps. It has been enabled by default.
-For more information, please visit our [docs](http://support.kadira.io/knowledgebase/topics/62637-error-tracking) on [error tracking](http://support.kadira.io/knowledgebase/topics/62637-error-tracking).
+APM comes with built in error tracking solution for Meteor apps. It has been enabled by default.
+'webClientEndpoint' option lets you set different endpoints for server and web clients. 
 
 ### More information
 
-Check out [Kadira Academy](https://kadira.io/academy) for more information and improve your app with Kadira.
+Check out the [Meteor APM Guide](http://galaxy-guide.meteor.com/apm-getting-started.html) for more information and improve your app with Meteor APM.
