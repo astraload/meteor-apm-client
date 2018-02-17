@@ -13,6 +13,7 @@ Tinytest.add(
       KADIRA_OPTIONS_COLLECT_ALL_STACKS: 'true',
       KADIRA_OPTIONS_ENABLE_ERROR_TRACKING: 'false',
       KADIRA_OPTIONS_ENDPOINT: 'https://engine.kadira.io',
+      KADIRA_OPTIONS_WEB_CLIENT_ENDPOINT: 'https://engine.kadira.io',
       KADIRA_OPTIONS_HOSTNAME: 'my-hostname',
       KADIRA_OPTIONS_PAYLOAD_TIMEOUT: '456',
       KADIRA_OPTIONS_PROXY: 'http://localhost:3128',
