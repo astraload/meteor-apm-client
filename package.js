@@ -12,17 +12,18 @@ var npmModules = {
   "evloop-monitor": "0.1.0",
   "pidusage": "0.1.1",
   "lru-cache": "4.0.0",
-  "json-stringify-safe": "5.0.1"
+  "json-stringify-safe": "5.0.1",
+  "send": "0.16.2"
 };
 
 Npm.depends(npmModules);
 
-Package.on_use(function(api) {
+Package.on_use(function (api) {
   configurePackage(api);
   api.export(['Kadira']);
 });
 
-Package.on_test(function(api) {
+Package.on_test(function (api) {
   configurePackage(api);
   api.use([
     'tinytest',
@@ -85,9 +86,10 @@ Package.on_test(function(api) {
 });
 
 function configurePackage(api) {
-  if(api.versionsFrom) {
+  if (api.versionsFrom) {
     api.versionsFrom('METEOR@1.2');
     api.use('meteorhacks:meteorx@1.4.1', ['server']);
+    api.use('simple:json-routes@2.1.0', ['server']);
     api.use('meteorhacks:zones@1.2.1', {weak: true});
   }
 
@@ -135,6 +137,7 @@ function configurePackage(api) {
     'lib/hijack/set_labels.js',
     'lib/environment_variables.js',
     'lib/auto_connect.js',
+    'lib/source_map.js',
   ], 'server');
 
   // only client

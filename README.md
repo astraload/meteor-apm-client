@@ -28,6 +28,8 @@ Use the followng `settings.json` file with your app:
     "options": {
       "endpoint": "https://<MY-APM-DOMAIN>:<PORT>",
       "webClientEndpoint": "https://<MY-APM-DOMAIN>:<PORT>"
+      "sourceMap": "true",
+      "hash": "f84dea983ab7c071b0ac038b26a9ad11899c062b"
     }
   }
   ...
