@@ -8,7 +8,7 @@
 2. From the UI, create an app. You'll get an `AppId` and an `AppSecret`.
 3. Run `meteor add knotel:meteor-apm-client` inside your Meteor project.
 4. Configure your Meteor app with the `AppId`, `AppSecret` and `endpoint` using environment variables or Meteor settings.
-
+5. Install [zodern:standard-minifier-js and zodern:hide-production-sourcemaps](https://atmospherejs.com/zodern/standard-minifier-js) 
 Now you can deploy your application and it will send information to your APM. Wait up to one minute and you'll see data appearing in the Dashboard.
 
 
@@ -28,10 +28,16 @@ Use the followng `settings.json` file with your app:
     "options": {
       "endpoint": "https://<MY-APM-DOMAIN>:<PORT>",
       "webClientEndpoint": "https://<MY-APM-DOMAIN>:<PORT>"
+      "sourceMap": "true"
     }
   }
   ...
 }
+```
+
+You should set hash to identify source-map version
+```
+export COMMIT_HASH='<commitHash>'
 ```
 
 The run your app with `meteor --settings=settings.json`.
