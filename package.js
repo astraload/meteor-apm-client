@@ -1,6 +1,6 @@
 Package.describe({
   "summary": "Performance Monitoring for Meteor",
-  "version": "2.30.4",
+  "version": "2.30.4_1",
   "git": "https://github.com/knotel/meteor-apm-client.git",
   "name": "knotel:meteor-apm-client"
 });

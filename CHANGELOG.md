@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.30.4.1
+
+* Small fix.
+
 ### v2.30.4
 
 * Add Add source-maps support in client errors tracing.
