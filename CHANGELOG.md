@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.30.4
+
+* Add Add source-maps support in client errors tracing.
+
 ### v2.30.3
 
 * Add ability to set different endpoints for server and web clients.
