@@ -1,11 +1,10 @@
-
 Tinytest.add(
   'Client Side - Error Manager - Reporters - meteor._debug - with zone',
   TestWithErrorTracking(function (test) {
     hijackKadiraSendErrors(mock_KadiraSendErrors);
     test.equal(typeof Meteor._debug, 'function');
     var errorSent = false;
-    var message = Meteor.uuid();
+    var message = Random.id();
 
     // set window.zone as nothing
     var originalZone = window.zone;
@@ -15,7 +14,7 @@ Tinytest.add(
     test.equal(errorSent, false);
     restoreKadiraSendErrors();
 
-    // cleajr 
+    // clear
     window.zone = originalZone;
     function mock_KadiraSendErrors(data) {
       errorSent = true;
@@ -30,7 +29,7 @@ Tinytest.add(
     test.equal(typeof Meteor._debug, 'function');
     var errorSent = false;
     var originalZone = window.zone;
-    var message = Meteor.uuid();
+    var message = Random.id();
     window.zone = undefined;
 
     try {
@@ -61,7 +60,7 @@ Tinytest.add(
     test.equal(typeof Meteor._debug, 'function');
     var errorSent = false;
     var originalZone = window.zone;
-    var message = Meteor.uuid();
+    var message = Random.id();
     window.zone = undefined;
 
     try {

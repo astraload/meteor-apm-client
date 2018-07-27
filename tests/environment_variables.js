@@ -35,6 +35,7 @@ Tinytest.add(
       collectAllStacks: true,
       enableErrorTracking: false,
       endpoint: 'https://engine.kadira.io',
+      webClientEndpoint: 'https://engine.kadira.io',
       hostname: 'my-hostname',
       payloadTimeout: 456,
       proxy: 'http://localhost:3128',

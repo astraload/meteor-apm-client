@@ -1,4 +1,3 @@
-
 Tinytest.add(
   'Errors - Meteor._debug - track with Meteor._debug',
   function (test) {
@@ -28,7 +27,7 @@ Tinytest.add(
       },
       stacks: [{stack: "_stack"}],
       count: 1
-    }
+    };
 
     delete error.startTime;
     delete error.trace.at;
@@ -59,11 +58,12 @@ Tinytest.add(
     test.equal(error.subType, method);
     _resetErrorTracking(originalErrorTrackingStatus);
 
-    function causeError () {
+    function causeError() {
       HTTP.call('POST', 'localhost', Function());
     }
   }
 );
+
 
 Tinytest.addAsync(
   'Errors - Meteor._debug - do not track pubsub errors',
@@ -73,17 +73,19 @@ Tinytest.addAsync(
     Kadira.models.error = new ErrorModel('foo');
     var pubsub = RegisterPublication(causeError);
     var client = GetMeteorClient();
-    var result = client.subscribe(pubsub, {onError: function () {
-      var payload = Kadira.models.error.buildPayload();
-      var error = payload.errors[0];
-      test.equal(1, payload.errors.length);
-      test.equal(error.type, 'sub');
-      test.equal(error.subType, pubsub);
-      _resetErrorTracking(originalErrorTrackingStatus);
-      done();
-    }});
+    var result = client.subscribe(pubsub, {
+      onError: function () {
+        var payload = Kadira.models.error.buildPayload();
+        var error = payload.errors[0];
+        test.equal(1, payload.errors.length);
+        test.equal(error.type, 'sub');
+        test.equal(error.subType, pubsub);
+        _resetErrorTracking(originalErrorTrackingStatus);
+        done();
+      }
+    });
 
-    function causeError () {
+    function causeError() {
       HTTP.call('POST', 'localhost', Function());
     }
   }
@@ -99,16 +101,16 @@ Tinytest.addAsync(
     var client = GetMeteorClient();
     try {
       var result = client.call(methodId);
-    } catch(ex) {
-      var errorMessage = 'reason [ERR_CODE]'
+    } catch (ex) {
+      var errorMessage = 'reason [ERR_CODE]';
       test.equal(ex.message, errorMessage);
       var payload = Kadira.models.error.buildPayload();
       var error = payload.errors[0];
       test.isTrue(error.stacks[0].stack.indexOf(errorMessage) >= 0);
 
-      var lastEvent = error.trace.events[error.trace.events.length -1];
-      test.isTrue(lastEvent[2].error.message.indexOf(errorMessage) >=0);
-      test.isTrue(lastEvent[2].error.stack.indexOf(errorMessage) >=0);
+      var lastEvent = error.trace.events[error.trace.events.length - 1];
+      test.isTrue(lastEvent[2].error.message.indexOf(errorMessage) >= 0);
+      test.isTrue(lastEvent[2].error.stack.indexOf(errorMessage) >= 0);
       done();
     }
 
@@ -126,16 +128,16 @@ Tinytest.addAsync(
     var client = GetMeteorClient();
     try {
       var result = client.call(methodId);
-    } catch(ex) {
+    } catch (ex) {
       var errorMessage = 'the-message';
       test.isTrue(ex.message.match(/Internal server error/));
       var payload = Kadira.models.error.buildPayload();
       var error = payload.errors[0];
       test.isTrue(error.stacks[0].stack.indexOf(errorMessage) >= 0);
 
-      var lastEvent = error.trace.events[error.trace.events.length -1];
-      test.isTrue(lastEvent[2].error.message.indexOf(errorMessage) >=0);
-      test.isTrue(lastEvent[2].error.stack.indexOf(errorMessage) >=0);
+      var lastEvent = error.trace.events[error.trace.events.length - 1];
+      test.isTrue(lastEvent[2].error.message.indexOf(errorMessage) >= 0);
+      test.isTrue(lastEvent[2].error.stack.indexOf(errorMessage) >= 0);
       done();
     }
 
@@ -143,8 +145,8 @@ Tinytest.addAsync(
   }
 );
 
-function _resetErrorTracking (status) {
-  if(status) {
+function _resetErrorTracking(status) {
+  if (status) {
     Kadira.enableErrorTracking();
   } else {
     Kadira.disableErrorTracking();
