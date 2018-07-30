@@ -1,5 +1,9 @@
 # Changelog
 
+### v2.30.5
+
+* Enable source mapping for stack traces captured by `Meteor._debug` and ZoneReporter.
+
 ### v2.30.4.1
 
 * Small fix.
