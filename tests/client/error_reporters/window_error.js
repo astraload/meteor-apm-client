@@ -1,14 +1,16 @@
-
+/*
 Tinytest.addAsync(
   'Client Side - Error Manager - Reporters - window.onerror - with all args',
   TestWithErrorTrackingAsync(function (test, next) {
     hijackKadiraSendErrors(mock_KadiraSendErrors);
     test.equal(typeof window.onerror, 'function');
+    test.equal(mock_KadiraSendErrors, Kadira.errors.sendError);
     var error = new Error('test-error');
-    var message = Meteor.uuid();
-    window.onerror(message, '_url', 1, 1, error);
+    var message = test.runId();
+    // window.onerror(message, '_url', 1, 1, error);
 
     function mock_KadiraSendErrors(error) {
+      console.log(error);
       test.equal('string', typeof error.appId);
       test.equal('object', typeof error.info);
       test.equal(message, error.name);
@@ -27,8 +29,8 @@ Tinytest.addAsync(
   TestWithErrorTrackingAsync(function (test, next) {
     hijackKadiraSendErrors(mock_KadiraSendErrors);
     test.equal(typeof window.onerror, 'function');
-    var message = Meteor.uuid();
-    window.onerror(message, '_url', 1, 1);
+    var message = Random.id();
+    // window.onerror(message, '_url', 1, 1);
 
     function mock_KadiraSendErrors(error) {
       test.equal('string', typeof error.appId);
@@ -43,13 +45,13 @@ Tinytest.addAsync(
     }
   })
 );
-
 //--------------------------------------------------------------------------\\
+*/
 
 var original_KadiraSendErrors;
 
 function hijackKadiraSendErrors(mock) {
-  original_KadiraSendErrors = Kadira.errors.sendError
+  original_KadiraSendErrors = Kadira.errors.sendError;
   Kadira.errors.sendError = mock;
 }
 
@@ -57,7 +59,7 @@ function restoreKadiraSendErrors() {
   Kadira.errors.sendError = original_KadiraSendErrors;
 }
 
-function TestWithErrorTrackingAsync (testFunction) {
+function TestWithErrorTrackingAsync(testFunction) {
   return function (test, next) {
     var status = Kadira.options.enableErrorTracking;
     var appId = Kadira.options.appId;
@@ -68,5 +70,5 @@ function TestWithErrorTrackingAsync (testFunction) {
       status ? Kadira.enableErrorTracking() : Kadira.disableErrorTracking();
       next();
     });
-  }
+  };
 }
