@@ -105,7 +105,7 @@ function configurePackage(api) {
     'email',
     'random',
   ], ['server']);
-  api.use(['underscore', 'random', 'jquery', 'localstorage'], ['client']);
+  api.use(['underscore', 'random', 'jquery@1.11.11', 'localstorage'], ['client']);
 
   // common before
   api.add_files([
