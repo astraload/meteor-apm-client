@@ -1,8 +1,8 @@
 Package.describe({
   "summary": "Performance Monitoring for Meteor",
-  "version": "2.30.5",
-  "git": "https://github.com/knotel/meteor-apm-client.git",
-  "name": "knotel:meteor-apm-client"
+  "version": "2.30.8",
+  "git": "https://github.com/astraload/meteor-apm-client.git",
+  "name": "astraload:meteor-apm-client"
 });
 
 var npmModules = {
@@ -87,15 +87,23 @@ Package.on_test(function (api) {
 
 function configurePackage(api) {
   if (api.versionsFrom) {
-    api.versionsFrom('METEOR@1.2');
-    api.use('meteorhacks:meteorx@1.4.1', ['server']);
+    api.versionsFrom('METEOR@1.7');
     api.use('simple:json-routes@2.1.0', ['server']);
     api.use('meteorhacks:zones@1.2.1', {weak: true});
   }
 
   api.use([
-    'minimongo', 'livedata', 'mongo-livedata', 'ejson', 'ddp-common',
-    'underscore', 'http', 'email', 'random'
+    'ecmascript',
+    'mongo',
+    'minimongo',
+    'livedata',
+    'mongo-livedata',
+    'ejson',
+    'ddp-common',
+    'underscore',
+    'http',
+    'email',
+    'random',
   ], ['server']);
   api.use(['underscore', 'random', 'jquery', 'localstorage'], ['client']);
 
