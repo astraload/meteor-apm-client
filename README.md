@@ -6,7 +6,7 @@
 
 1. Login to your own Meteor APM instance.
 2. From the UI, create an app. You'll get an `AppId` and an `AppSecret`.
-3. Run `meteor add knotel:meteor-apm-client` inside your Meteor project.
+3. Run `meteor add astraload:meteor-apm-client` inside your Meteor project.
 4. Configure your Meteor app with the `AppId`, `AppSecret` and `endpoint` using environment variables or Meteor settings.
 5. Install [zodern:standard-minifier-js and zodern:hide-production-sourcemaps](https://atmospherejs.com/zodern/standard-minifier-js) 
 Now you can deploy your application and it will send information to your APM. Wait up to one minute and you'll see data appearing in the Dashboard.
