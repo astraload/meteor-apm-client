@@ -1,6 +1,6 @@
 Package.describe({
   "summary": "Performance Monitoring for Meteor",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "git": "https://github.com/astraload/meteor-apm-client.git",
   "name": "astraload:meteor-apm-client"
 });
@@ -10,7 +10,6 @@ var npmModules = {
   "kadira-core": "1.3.2",
   "pidusage": "1.0.1",
   "evloop-monitor": "0.1.0",
-  "pidusage": "0.1.1",
   "lru-cache": "4.0.0",
   "json-stringify-safe": "5.0.1",
   "send": "0.16.2"
@@ -87,7 +86,7 @@ Package.onTest(function (api) {
 
 function configurePackage(api) {
   if (api.versionsFrom) {
-    api.versionsFrom('METEOR@1.11');
+    api.versionsFrom(['METEOR@1.11', 'METEOR@2.3']);
     api.use('simple:json-routes@2.1.0', ['server']);
     api.use('meteorhacks:zones@1.2.1', {weak: true});
   }
