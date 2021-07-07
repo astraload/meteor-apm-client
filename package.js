@@ -10,7 +10,6 @@ var npmModules = {
   "kadira-core": "1.3.2",
   "pidusage": "1.0.1",
   "evloop-monitor": "0.1.0",
-  "pidusage": "0.1.1",
   "lru-cache": "4.0.0",
   "json-stringify-safe": "5.0.1",
   "send": "0.16.2"
