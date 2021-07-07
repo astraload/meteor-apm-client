@@ -1,6 +1,6 @@
 Package.describe({
   "summary": "Performance Monitoring for Meteor",
-  "version": "2.31.0",
+  "version": "2.32.0",
   "git": "https://github.com/astraload/meteor-apm-client.git",
   "name": "astraload:meteor-apm-client"
 });
