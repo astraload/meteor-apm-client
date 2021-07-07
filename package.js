@@ -87,7 +87,7 @@ Package.onTest(function (api) {
 
 function configurePackage(api) {
   if (api.versionsFrom) {
-    api.versionsFrom('METEOR@1.11');
+    api.versionsFrom(['METEOR@1.11', 'METEOR@2.3']);
     api.use('simple:json-routes@2.1.0', ['server']);
     api.use('meteorhacks:zones@1.2.1', {weak: true});
   }
